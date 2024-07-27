@@ -1,9 +1,34 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Pressable, Image } from "react-native";
+import ProfileOption from "../components/ProfileOption";
+import { theme } from "../utils/theme";
+import { useContext } from "react";
+import { UserContext } from "../store/user-context";
 
 function ProfileScreen() {
+  const { user, removeUser } = useContext(UserContext);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.textStyle}>Profile Screen</Text>
+      <Image
+        source={{
+          uri: "https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg",
+        }}
+        style={styles.imageContainer}
+      />
+
+      <View style={styles.detailContainer}>
+        <Text style={styles.nameTextStyle}>{user.name}</Text>
+        <Text style={styles.detailTextStyle}>{user.email}</Text>
+        <Text style={styles.detailTextStyle}>{user.phone}</Text>
+      </View>
+      <ProfileOption text="Address" />
+      <ProfileOption text="Wishlist" />
+      <ProfileOption text="Payment" />
+      <ProfileOption text="Help" />
+      <ProfileOption text="Support" />
+      <Pressable onPress={removeUser}>
+        <Text style={styles.signOutTextStyle}>Sign Out</Text>
+      </Pressable>
     </View>
   );
 }
@@ -11,13 +36,33 @@ function ProfileScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     backgroundColor: "white",
+    padding: theme.spacing.m,
+    justifyContent: "center",
   },
-  textStyle: {
+  imageContainer: {
+    height: 100,
+    width: 100,
+    borderRadius: 50,
+    alignSelf: "center",
+    marginBottom: theme.spacing.m,
+  },
+  detailContainer: {
+    backgroundColor: theme.colors.greyBackground,
+    padding: theme.spacing.s,
+    borderRadius: theme.spacing.s,
+    marginBottom: theme.spacing.m,
+  },
+  nameTextStyle: {
     fontWeight: "bold",
-    fontSize: 20,
+  },
+  detailTextStyle: {
+    color: theme.colors.greyText,
+  },
+  signOutTextStyle: {
+    fontWeight: "bold",
+    color: "red",
+    alignSelf: "center",
   },
 });
 
