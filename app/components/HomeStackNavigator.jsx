@@ -20,7 +20,7 @@ import { theme } from "../utils/theme";
 
 const Stack = createNativeStackNavigator();
 
-function StackNavigator({ navigation, route }) {
+function HomeStackNavigator({ navigation, route }) {
   useLayoutEffect(() => {
     const routeName = getFocusedRouteNameFromRoute(route);
     if (
@@ -66,4 +66,4 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "white" },
 });
 
-export default StackNavigator;
+export default HomeStackNavigator;

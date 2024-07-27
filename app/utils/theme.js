@@ -1,12 +1,13 @@
 const palette = {
-  lightPurple: '#e8e1fc',
-  purple: '#8E6Cf0',
-  green: '#0ECD9D',
-  red: '#CD0E61',
-  black: '#0B0B0B',
-  white: '#F0F2F3',
-  grey: '#f4f4f4',
-}
+  lightPurple: "#e8e1fc",
+  purple: "#8E6Cf0",
+  green: "#0ECD9D",
+  red: "#CD0E61",
+  black: "#0B0B0B",
+  white: "#F0F2F3",
+  grey: "#f4f4f4",
+  darkGrey: "#272727",
+};
 
 export const theme = {
   colors: {
@@ -15,6 +16,7 @@ export const theme = {
     greyBackground: palette.grey,
     primary: palette.purple,
     primaryLight: palette.lightPurple,
+    greyText: palette.darkGrey,
     success: palette.green,
     danger: palette.red,
     failure: palette.red,
@@ -28,7 +30,7 @@ export const theme = {
   textVariants: {
     headerBold: {
       fontSize: 24,
-      fontWeight: 'bold',
+      fontWeight: "bold",
     },
     header: {
       fontSize: 24,
@@ -38,12 +40,12 @@ export const theme = {
     },
     subHeaderBold: {
       fontSize: 20,
-      fontWeight: 'bold',
+      fontWeight: "bold",
     },
     body: {
       fontSize: 16,
     },
-  }
+  },
 };
 
 export const darkTheme = {
@@ -52,5 +54,5 @@ export const darkTheme = {
     ...theme.colors,
     background: palette.black,
     foreground: palette.white,
-  }
-}
+  },
+};

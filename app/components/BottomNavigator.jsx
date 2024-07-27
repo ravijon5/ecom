@@ -3,13 +3,22 @@ import { useContext } from "react";
 import { CartContext } from "../store/cart-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
-import { NOTIFICATION, STACK, PROFILE, CART } from "../utils/route_constants";
+import {
+  NOTIFICATION,
+  STACK,
+  PROFILE,
+  CART,
+  HOME_STACK,
+  CART_STACK,
+} from "../utils/route_constants";
 import NotificationScreen from "../screens/NotificationScreen";
 import CartScreen from "../screens/CartScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import { theme } from "../utils/theme";
-import StackNavigator from "./StackNavigator";
+import StackNavigator from "./HomeStackNavigator";
 import { View, Text } from "react-native";
+import HomeStackNavigator from "./HomeStackNavigator";
+import CartStackNavigator from "./CartStackNavigator";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -26,8 +35,8 @@ function BottomNavigator() {
         }}
       >
         <BottomTab.Screen
-          name={STACK}
-          component={StackNavigator}
+          name={HOME_STACK}
+          component={HomeStackNavigator}
           options={{
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="home-outline" color={color} size={size} />
@@ -48,8 +57,8 @@ function BottomNavigator() {
           }}
         />
         <BottomTab.Screen
-          name={CART}
-          component={CartScreen}
+          name={CART_STACK}
+          component={CartStackNavigator}
           options={{
             tabBarIcon: ({ color, size }) => (
               <View>

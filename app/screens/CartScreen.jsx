@@ -12,12 +12,15 @@ import { theme } from "../utils/theme";
 import { useContext } from "react";
 import { CartContext } from "../store/cart-context";
 import CartProduct from "../components/CartProduct";
-import { CART } from "../utils/image_constant";
 import RoundButton from "../components/RoundButton";
 import RoundedButton from "../components/RoundedButton";
+import { CHECKOUT } from "../utils/route_constants";
+import CostRow from "../components/CostRow";
+import { getPrice } from "../utils/helper_function";
 
-function CartScreen() {
-  const { cartProducts, clearCart, getQuantity } = useContext(CartContext);
+function CartScreen({ navigation, route }) {
+  const { cartProducts, clearCart, getQuantity, getTotal } =
+    useContext(CartContext);
   return getQuantity() === 0 ? (
     <View style={styles.centerContainer}>
       <Image
@@ -43,10 +46,12 @@ function CartScreen() {
           <CartProduct product={item.product} quantity={item.quantity} />
         )}
       />
-      <Text>Subtotal</Text>
-      <Text>Shipping Cost</Text>
-      <Text>Tax</Text>
-      <Text>Total</Text>
+
+      <CostRow text="Subtotal" cost={getPrice(getTotal())} />
+      <CostRow text="Shipping Cost" cost={8} />
+      <CostRow text="Tax" cost={0} />
+      <CostRow text="Total" cost={getPrice(getTotal() + 8)} />
+
       <View style={styles.textInputContainerStyle}>
         <Image source={require("../../assets/discount.png")} />
         <TextInput
@@ -58,7 +63,11 @@ function CartScreen() {
         </RoundButton>
       </View>
 
-      <RoundedButton>
+      <RoundedButton
+        onPress={() => {
+          navigation.navigate(CHECKOUT);
+        }}
+      >
         <View
           style={{
             flex: 1,

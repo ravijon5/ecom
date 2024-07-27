@@ -3,6 +3,7 @@ import { createContext, useState } from "react";
 export const CartContext = createContext({
   cartProducts: [],
   getQuantity: () => {},
+  getTotal: () => {},
   addItemToCart: (product, quantity) => {},
   removeItemFromCart: (product, quantity) => {},
   removeFromCart: (product, quantity) => {},
@@ -18,6 +19,14 @@ function CartContextProvider({ children }) {
       count += e.quantity;
     });
     return count;
+  }
+
+  function getTotal() {
+    let total = 0;
+    products.map((e) => {
+      total += e.quantity * e.product.price;
+    });
+    return total;
   }
 
   function addItemToCart(product, quantity) {
@@ -72,6 +81,7 @@ function CartContextProvider({ children }) {
     removeFromCart: removeFromCart,
     getQuantity: getQuantity,
     clearCart: clearCart,
+    getTotal: getTotal,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

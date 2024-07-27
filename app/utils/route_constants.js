@@ -1,9 +1,11 @@
 export const HOME = "home";
 export const ALL_CATEGORIES = "allCategories";
 export const PRODUCTS = "products";
-export const STACK = "stack";
+export const HOME_STACK = "homeStack";
+export const CART_STACK = "cartStack";
 export const NOTIFICATION = "notification";
 export const CART = "cart";
+export const CHECKOUT = "checkout";
 export const ORDERS = "orders";
 export const PROFILE = "profile";
 export const PRODUCT_DETAIL = "productDetail";
