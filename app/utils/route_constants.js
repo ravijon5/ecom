@@ -1,0 +1,9 @@
+export const HOME = "home";
+export const ALL_CATEGORIES = "allCategories";
+export const PRODUCTS = "products";
+export const STACK = "stack";
+export const NOTIFICATION = "notification";
+export const CART = "cart";
+export const ORDERS = "orders";
+export const PROFILE = "profile";
+export const PRODUCT_DETAIL = "productDetail";
