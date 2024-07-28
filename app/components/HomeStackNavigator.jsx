@@ -36,28 +36,26 @@ function HomeStackNavigator({ navigation, route }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <FavoritesContextProvider>
-        <Stack.Navigator
-          screenOptions={{
-            header: ({ navigation, route, options }) =>
-              route.name === HOME ? (
-                <View></View>
-              ) : (
-                <AppBar
-                  route={route}
-                  onPress={() => {
-                    navigation.goBack();
-                  }}
-                />
-              ),
-          }}
-        >
-          <Stack.Screen name={HOME} component={HomeScreen} />
-          <Stack.Screen name={ALL_CATEGORIES} component={AllCategoriesScreen} />
-          <Stack.Screen name={PRODUCTS} component={ProductsScreen} />
-          <Stack.Screen name={PRODUCT_DETAIL} component={ProductDetailScreen} />
-        </Stack.Navigator>
-      </FavoritesContextProvider>
+      <Stack.Navigator
+        screenOptions={{
+          header: ({ navigation, route, options }) =>
+            route.name === HOME ? (
+              <View></View>
+            ) : (
+              <AppBar
+                route={route}
+                onPress={() => {
+                  navigation.goBack();
+                }}
+              />
+            ),
+        }}
+      >
+        <Stack.Screen name={HOME} component={HomeScreen} />
+        <Stack.Screen name={ALL_CATEGORIES} component={AllCategoriesScreen} />
+        <Stack.Screen name={PRODUCTS} component={ProductsScreen} />
+        <Stack.Screen name={PRODUCT_DETAIL} component={ProductDetailScreen} />
+      </Stack.Navigator>
     </SafeAreaView>
   );
 }

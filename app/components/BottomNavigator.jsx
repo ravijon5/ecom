@@ -5,20 +5,18 @@ import { NavigationContainer } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import {
   NOTIFICATION,
-  STACK,
-  PROFILE,
-  CART,
   HOME_STACK,
   CART_STACK,
+  PROFILE_STACK,
+  PROFILE,
 } from "../utils/route_constants";
 import NotificationScreen from "../screens/NotificationScreen";
-import CartScreen from "../screens/CartScreen";
-import ProfileScreen from "../screens/ProfileScreen";
 import { theme } from "../utils/theme";
-import StackNavigator from "./HomeStackNavigator";
 import { View, Text } from "react-native";
 import HomeStackNavigator from "./HomeStackNavigator";
 import CartStackNavigator from "./CartStackNavigator";
+import ProfileStackNavigator from "./ProfileStackNavigator";
+import ProfileScreen from "../screens/ProfileScreen";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -85,8 +83,8 @@ function BottomNavigator() {
           }}
         />
         <BottomTab.Screen
-          name={PROFILE}
-          component={ProfileScreen}
+          name={PROFILE_STACK}
+          component={ProfileStackNavigator}
           options={{
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="person-outline" color={color} size={size} />

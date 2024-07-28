@@ -3,9 +3,15 @@ import ProfileOption from "../components/ProfileOption";
 import { theme } from "../utils/theme";
 import { useContext } from "react";
 import { UserContext } from "../store/user-context";
+import { FAVORITES } from "../utils/route_constants";
+import { USERS } from "../utils/users";
 
-function ProfileScreen() {
-  const { user, removeUser } = useContext(UserContext);
+function ProfileScreen({ navigation }) {
+  // const { user, removeUser } = useContext(UserContext);
+
+  const { removeUser } = useContext(UserContext);
+
+  const user = USERS[0];
 
   return (
     <View style={styles.container}>
@@ -22,7 +28,12 @@ function ProfileScreen() {
         <Text style={styles.detailTextStyle}>{user.phone}</Text>
       </View>
       <ProfileOption text="Address" />
-      <ProfileOption text="Wishlist" />
+      <ProfileOption
+        text="Wishlist"
+        onPress={() => {
+          navigation.navigate(FAVORITES);
+        }}
+      />
       <ProfileOption text="Payment" />
       <ProfileOption text="Help" />
       <ProfileOption text="Support" />

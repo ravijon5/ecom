@@ -1,13 +1,13 @@
 import { Ionicons } from "@expo/vector-icons";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import { theme } from "../utils/theme";
 
-function ProfileOption({ text }) {
+function ProfileOption({ text, onPress }) {
   return (
-    <View style={styles.container}>
+    <Pressable style={styles.container} onPress={onPress}>
       <Text>{text}</Text>
       <Ionicons name="chevron-forward" size={20} />
-    </View>
+    </Pressable>
   );
 }
 

@@ -11,6 +11,7 @@ import { theme } from "../utils/theme";
 import Product from "../components/Product";
 import { toTitleCase } from "../utils/helper_function";
 import { PRODUCT_DETAIL } from "../utils/route_constants";
+import ProductFlatList from "../components/ProductFlatlist";
 
 function ProductsScreen({ route, navigation }) {
   const category = route.params.category;
@@ -32,6 +33,14 @@ function ProductsScreen({ route, navigation }) {
     );
   }
 
+  if (products.length === 0) {
+    return (
+      <View style={styles.centeredContainer}>
+        <Text>No Products</Text>
+      </View>
+    );
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
@@ -39,24 +48,7 @@ function ProductsScreen({ route, navigation }) {
           {toTitleCase(category)}({products.length})
         </Text>
       </View>
-      <FlatList
-        data={products}
-        renderItem={({ item, index }) => (
-          <Product
-            product={item}
-            onPress={() => {
-              navigation.navigate(PRODUCT_DETAIL, {
-                product: item,
-              });
-            }}
-          />
-        )}
-        contentContainerStyle={{ rowGap: theme.spacing.s }}
-        columnWrapperStyle={{ gap: theme.spacing.s }}
-        showsVerticalScrollIndicator={false}
-        keyExtractor={(item) => item.id}
-        numColumns={2}
-      />
+      <ProductFlatList products={products} />
     </View>
   );
 }
@@ -80,7 +72,7 @@ const styles = StyleSheet.create({
 
     alignSelf: "flex-start",
     // marginLeft: theme.spacing.m,
-    marginVertical: theme.spacing.m,
+    marginBottom: theme.spacing.m,
   },
   textStyle: {
     fontWeight: "bold",
