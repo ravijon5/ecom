@@ -27,5 +27,5 @@ export function validateZipCode(value) {
   if (value === "") {
     return "Field cannot be empty";
   }
-  return value.length > 5 ? null : "Zip Code must be at least 6 characters";
+  return value.length === 6 ? null : "Zip Code must be of 6 characters";
 }

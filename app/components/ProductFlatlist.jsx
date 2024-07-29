@@ -1,6 +1,7 @@
 import { FlatList } from "react-native";
 import Product from "./Product";
 import { theme } from "../utils/theme";
+import { PRODUCT_DETAIL } from "../utils/route_constants";
 
 function ProductFlatList({ products, navigation }) {
   return (

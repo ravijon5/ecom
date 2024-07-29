@@ -7,8 +7,6 @@ import { theme } from "../utils/theme";
 function FavoritesScreen({ products }) {
   const { favorites } = useContext(FavoritesContext);
 
-  console.log("favorites: ", favorites);
-
   if (favorites.length === 0) {
     return (
       <View style={styles.centeredContainer}>

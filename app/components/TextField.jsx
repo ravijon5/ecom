@@ -9,6 +9,8 @@ function TextField({
   onChangeText,
   error,
   obscureText = false,
+  keyboardType = "default",
+  maxLength,
 }) {
   const [secureText, setSecureText] = useState(true);
 
@@ -22,7 +24,9 @@ function TextField({
         <TextInput
           placeholder={placeholder}
           value={value}
+          maxLength={maxLength}
           onChangeText={onChangeText}
+          keyboardType={keyboardType}
           style={{ flex: 1 }}
           secureTextEntry={obscureText && secureText}
         />
