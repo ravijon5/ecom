@@ -13,7 +13,7 @@ import useSignInController from "../controllers/SignInController";
 import { useContext, useEffect } from "react";
 import { UserContext } from "../store/user-context";
 
-function LoginScreen() {
+function SignInScreen() {
   const {
     email,
     password,
@@ -99,4 +99,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
+export default SignInScreen;

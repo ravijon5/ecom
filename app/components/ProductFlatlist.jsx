@@ -2,7 +2,7 @@ import { FlatList } from "react-native";
 import Product from "./Product";
 import { theme } from "../utils/theme";
 
-function ProductFlatList({ products }) {
+function ProductFlatList({ products, navigation }) {
   return (
     <FlatList
       data={products}

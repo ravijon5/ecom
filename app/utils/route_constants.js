@@ -11,3 +11,5 @@ export const ORDERS = "orders";
 export const PROFILE = "profile";
 export const PRODUCT_DETAIL = "productDetail";
 export const FAVORITES = "favorites";
+export const ADDRESS = "address";
+export const ADD_ADDRESS = "addAddress";

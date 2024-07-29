@@ -2,18 +2,29 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { View, Text, StyleSheet } from "react-native";
 import ProfileScreen from "../screens/ProfileScreen";
 import FavoritesScreen from "../screens/FavoritesScreen";
-import { FAVORITES, PROFILE } from "../utils/route_constants";
+import {
+  ADD_ADDRESS,
+  ADDRESS,
+  FAVORITES,
+  PROFILE,
+} from "../utils/route_constants";
 import { useLayoutEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import AppBar from "./AppBar";
+import AddressScreen from "../screens/AddressScreen";
+import AddAddressScreen from "../screens/AddAddressScreen";
 
 const Stack = createNativeStackNavigator();
 
 function ProfileStackNavigator({ navigation, route }) {
   useLayoutEffect(() => {
     const routeName = getFocusedRouteNameFromRoute(route);
-    if (routeName === FAVORITES) {
+    if (
+      routeName === FAVORITES ||
+      routeName === ADDRESS ||
+      routeName === ADD_ADDRESS
+    ) {
       navigation.setOptions({ tabBarStyle: { display: "none" } });
     } else {
       navigation.setOptions({ tabBarStyle: { display: "flex" } });
@@ -39,6 +50,8 @@ function ProfileStackNavigator({ navigation, route }) {
       >
         <Stack.Screen name={PROFILE} component={ProfileScreen} />
         <Stack.Screen name={FAVORITES} component={FavoritesScreen} />
+        <Stack.Screen name={ADDRESS} component={AddressScreen} />
+        <Stack.Screen name={ADD_ADDRESS} component={AddAddressScreen} />
       </Stack.Navigator>
     </SafeAreaView>
   );

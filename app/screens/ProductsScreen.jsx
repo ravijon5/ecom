@@ -48,7 +48,7 @@ function ProductsScreen({ route, navigation }) {
           {toTitleCase(category)}({products.length})
         </Text>
       </View>
-      <ProductFlatList products={products} />
+      <ProductFlatList products={products} navigation={navigation} />
     </View>
   );
 }

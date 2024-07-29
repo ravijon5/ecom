@@ -1,4 +1,9 @@
-import { ELECTRONICS, JEWELLERY, MENCLOTHING, WOMENCLOTHING } from "./constant";
+import {
+  ELECTRONICS,
+  JEWELLERY,
+  MEN_CLOTHING,
+  WOMEN_CLOTHING,
+} from "./constant";
 
 export function toTitleCase(str) {
   return str
@@ -16,8 +21,8 @@ export function getImageUrl(index) {
     : index == 1
     ? JEWELLERY
     : index == 2
-    ? MENCLOTHING
-    : WOMENCLOTHING;
+    ? MEN_CLOTHING
+    : WOMEN_CLOTHING;
 }
 
 export function getPrice(number) {

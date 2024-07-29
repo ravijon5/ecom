@@ -15,3 +15,17 @@ export function validatePassword(password) {
   }
   return password.length > 5 ? null : "Password must be at least 6 characters";
 }
+
+export function validateField(value) {
+  if (value === "") {
+    return "Field cannot be empty";
+  }
+  return null;
+}
+
+export function validateZipCode(value) {
+  if (value === "") {
+    return "Field cannot be empty";
+  }
+  return value.length > 5 ? null : "Zip Code must be at least 6 characters";
+}

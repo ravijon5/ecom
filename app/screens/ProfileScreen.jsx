@@ -3,7 +3,7 @@ import ProfileOption from "../components/ProfileOption";
 import { theme } from "../utils/theme";
 import { useContext } from "react";
 import { UserContext } from "../store/user-context";
-import { FAVORITES } from "../utils/route_constants";
+import { ADDRESS, FAVORITES } from "../utils/route_constants";
 import { USERS } from "../utils/users";
 
 function ProfileScreen({ navigation }) {
@@ -17,7 +17,7 @@ function ProfileScreen({ navigation }) {
     <View style={styles.container}>
       <Image
         source={{
-          uri: "https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg",
+          uri: user.image,
         }}
         style={styles.imageContainer}
       />
@@ -27,7 +27,12 @@ function ProfileScreen({ navigation }) {
         <Text style={styles.detailTextStyle}>{user.email}</Text>
         <Text style={styles.detailTextStyle}>{user.phone}</Text>
       </View>
-      <ProfileOption text="Address" />
+      <ProfileOption
+        text="Address"
+        onPress={() => {
+          navigation.navigate(ADDRESS);
+        }}
+      />
       <ProfileOption
         text="Wishlist"
         onPress={() => {
