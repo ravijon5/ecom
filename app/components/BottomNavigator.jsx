@@ -27,8 +27,9 @@ function BottomNavigator() {
         }}
       >
         <BottomTab.Screen
-          name={Routes.HOME_STACK}
+          name={Routes.HOME_BOTTOM_TAB}
           component={HomeStackNavigator}
+          initialParams={{ initialRouteName: Routes.HOME }}
           options={{
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="home-outline" color={color} size={size} />
@@ -77,8 +78,9 @@ function BottomNavigator() {
           }}
         />
         <BottomTab.Screen
-          name={Routes.PROFILE_STACK}
-          component={ProfileStackNavigator}
+          name={Routes.PROFILE_BOTTOM_TAB}
+          initialParams={{ initialRouteName: Routes.PROFILE }}
+          component={HomeStackNavigator}
           options={{
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="person-outline" color={color} size={size} />

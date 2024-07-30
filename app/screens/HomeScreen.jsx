@@ -56,7 +56,7 @@ function HomeScreen({ navigation }) {
         text="Women's Clothing"
         navigation={navigation}
         onPress={() => {
-          navigation.navigate(PRODUCTS, {
+          navigation.navigate(Routes.PRODUCTS, {
             category: "women's clothing",
           });
         }}

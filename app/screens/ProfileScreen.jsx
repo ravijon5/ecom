@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable, Image } from "react-native";
+import { View, Text, StyleSheet, Pressable, Image, Alert } from "react-native";
 import ProfileOption from "../components/ProfileOption";
 import { theme } from "../utils/theme";
 import { useContext } from "react";
@@ -21,6 +21,22 @@ function ProfileScreen({ navigation }) {
     navigation.navigate(Routes.FAVORITES);
   }
 
+  function signOutAlert() {
+    Alert.alert("Sign Out", "Are you sure you want to sign out?", [
+      {
+        text: "Cancel",
+        onPress: () => {},
+        style: "cancel",
+      },
+      {
+        text: "OK",
+        onPress: () => {
+          removeUser();
+        },
+      },
+    ]);
+  }
+
   return (
     <View style={styles.container}>
       <Image
@@ -40,7 +56,7 @@ function ProfileScreen({ navigation }) {
       <ProfileOption text="Payment" />
       <ProfileOption text="Help" />
       <ProfileOption text="Support" />
-      <Pressable onPress={removeUser}>
+      <Pressable onPress={signOutAlert}>
         <Text style={styles.signOutTextStyle}>Sign Out</Text>
       </Pressable>
     </View>

@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { FavoritesContext } from "../store/favorites-context";
 import { theme } from "../utils/theme";
 
-function FavoritesScreen({ products }) {
+function FavoritesScreen({ navigation }) {
   const { favorites } = useContext(FavoritesContext);
 
   if (favorites.length === 0) {
@@ -17,7 +17,7 @@ function FavoritesScreen({ products }) {
 
   return (
     <View style={styles.container}>
-      <ProductFlatList products={favorites} />
+      <ProductFlatList products={favorites} navigation={navigation} />
     </View>
   );
 }

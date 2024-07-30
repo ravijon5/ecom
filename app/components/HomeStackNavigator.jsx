@@ -12,10 +12,15 @@ import { Routes } from "../utils/route_constants";
 
 import { SafeAreaView } from "react-native-safe-area-context";
 import { theme } from "../utils/theme";
+import ProfileScreen from "../screens/ProfileScreen";
+import FavoritesScreen from "../screens/FavoritesScreen";
+import AddAddressScreen from "../screens/AddAddressScreen";
+import AddressScreen from "../screens/AddressScreen";
 
 const Stack = createNativeStackNavigator();
 
 function HomeStackNavigator({ navigation, route }) {
+  const initialRouteName = route.params.initialRouteName;
   useLayoutEffect(() => {
     const routeName = getFocusedRouteNameFromRoute(route);
     if (
@@ -32,8 +37,9 @@ function HomeStackNavigator({ navigation, route }) {
   return (
     <SafeAreaView style={styles.container}>
       <Stack.Navigator
+        initialRouteName={initialRouteName}
         screenOptions={({ navigation, route }) => {
-          if (route.name === Routes.HOME) {
+          if (route.name === Routes.HOME || route.name === Routes.PROFILE) {
             return {
               header: () => <View></View>,
             };
@@ -61,6 +67,11 @@ function HomeStackNavigator({ navigation, route }) {
           name={Routes.PRODUCT_DETAIL}
           component={ProductDetailScreen}
         />
+
+        <Stack.Screen name={Routes.PROFILE} component={ProfileScreen} />
+        <Stack.Screen name={Routes.FAVORITES} component={FavoritesScreen} />
+        <Stack.Screen name={Routes.ADDRESS} component={AddressScreen} />
+        <Stack.Screen name={Routes.ADD_ADDRESS} component={AddAddressScreen} />
       </Stack.Navigator>
     </SafeAreaView>
   );
