@@ -30,6 +30,14 @@ function SignInScreen() {
 
   const { addUser } = useContext(UserContext);
 
+  async function signIn() {
+    Keyboard.dismiss();
+    const user = await onSignIn();
+    if (user) {
+      addUser(user);
+    }
+  }
+
   useEffect(() => {
     if (error) {
       ToastAndroid.show(error.message, ToastAndroid.SHORT);
@@ -63,13 +71,7 @@ function SignInScreen() {
             isFormValid ? null : { backgroundColor: theme.colors.primaryLight }
           }
           isDisabled={!isFormValid}
-          onPress={async () => {
-            Keyboard.dismiss();
-            const user = await onSignIn();
-            if (user) {
-              addUser(user);
-            }
-          }}
+          onPress={signIn}
         />
       )}
       <Text style={styles.signUpTextStyle}>
@@ -82,7 +84,7 @@ function SignInScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: theme.colors.background,
     padding: theme.spacing.m,
     justifyContent: "center",
   },
@@ -90,7 +92,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.m,
   },
   signUpTextStyle: {
-    fontSize: 12,
+    fontSize: theme.fontSize.s,
     marginTop: theme.spacing.m,
   },
   boldText: {

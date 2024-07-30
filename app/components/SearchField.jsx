@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   inputStyle: {
     flex: 1,
     paddingHorizontal: theme.spacing.s,
-    fontSize: 12,
+    fontSize: theme.fontSize.s,
   },
 });
 

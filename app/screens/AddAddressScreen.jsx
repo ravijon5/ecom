@@ -101,7 +101,7 @@ function AddAddressScreen({ route }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: theme.colors.background,
     padding: theme.spacing.m,
   },
   rowContainer: {

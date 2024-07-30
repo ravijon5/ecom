@@ -62,11 +62,19 @@ function ProductDetailScreen({ route }) {
       <View style={styles.quantityContainer}>
         <Text style={{ flex: 1 }}>Quantity</Text>
         <RoundButton onPress={decrementQuantity}>
-          <Ionicons name="remove" color="white" size={theme.spacing.m} />
+          <Ionicons
+            name="remove"
+            color={theme.colors.whiteIcon}
+            size={theme.spacing.m}
+          />
         </RoundButton>
         <Text style={styles.quantityText}>{quantity}</Text>
         <RoundButton onPress={incrementQuantity}>
-          <Ionicons name="add" color="white" size={theme.spacing.m} />
+          <Ionicons
+            name="add"
+            color={theme.colors.whiteIcon}
+            size={theme.spacing.m}
+          />
         </RoundButton>
       </View>
       <View style={styles.addToCartButtonStyle}>
@@ -91,7 +99,7 @@ function ProductDetailScreen({ route }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: theme.colors.background,
     padding: theme.spacing.m,
   },
   imageContainer: {
@@ -115,7 +123,7 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.greyBackground,
   },
   descriptionStyle: {
-    fontSize: 12,
+    fontSize: theme.fontSize.s,
   },
   quantityContainer: {
     flexDirection: "row",

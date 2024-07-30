@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet } from "react-native";
+import { theme } from "../utils/theme";
 
 function CheckoutScreen() {
   return (
@@ -11,7 +12,7 @@ function CheckoutScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: theme.colors.background,
     justifyContent: "center",
     alignItems: "center",
   },

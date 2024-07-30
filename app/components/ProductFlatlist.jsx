@@ -1,7 +1,7 @@
 import { FlatList } from "react-native";
 import Product from "./Product";
 import { theme } from "../utils/theme";
-import { PRODUCT_DETAIL } from "../utils/route_constants";
+import { Routes } from "../utils/route_constants";
 
 function ProductFlatList({ products, navigation }) {
   return (
@@ -11,7 +11,7 @@ function ProductFlatList({ products, navigation }) {
         <Product
           product={item}
           onPress={() => {
-            navigation.navigate(PRODUCT_DETAIL, {
+            navigation.navigate(Routes.PRODUCT_DETAIL, {
               product: item,
             });
           }}

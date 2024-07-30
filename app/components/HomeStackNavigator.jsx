@@ -8,13 +8,10 @@ import AllCategoriesScreen from "../screens/AllCategoriesScreen";
 import ProductsScreen from "../screens/ProductsScreen";
 import ProductDetailScreen from "../screens/ProductDetailScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import {
-  HOME,
-  ALL_CATEGORIES,
-  PRODUCTS,
-  PRODUCT_DETAIL,
-} from "../utils/route_constants";
+import { Routes } from "../utils/route_constants";
+
 import { SafeAreaView } from "react-native-safe-area-context";
+import { theme } from "../utils/theme";
 
 const Stack = createNativeStackNavigator();
 
@@ -22,9 +19,9 @@ function HomeStackNavigator({ navigation, route }) {
   useLayoutEffect(() => {
     const routeName = getFocusedRouteNameFromRoute(route);
     if (
-      routeName === ALL_CATEGORIES ||
-      routeName === PRODUCT_DETAIL ||
-      routeName === PRODUCTS
+      routeName === Routes.ALL_CATEGORIES ||
+      routeName === Routes.PRODUCT_DETAIL ||
+      routeName === Routes.PRODUCTS
     ) {
       navigation.setOptions({ tabBarStyle: { display: "none" } });
     } else {
@@ -36,7 +33,7 @@ function HomeStackNavigator({ navigation, route }) {
     <SafeAreaView style={styles.container}>
       <Stack.Navigator
         screenOptions={({ navigation, route }) => {
-          if (route.name === HOME) {
+          if (route.name === Routes.HOME) {
             return {
               header: () => <View></View>,
             };
@@ -54,17 +51,23 @@ function HomeStackNavigator({ navigation, route }) {
           }
         }}
       >
-        <Stack.Screen name={HOME} component={HomeScreen} />
-        <Stack.Screen name={ALL_CATEGORIES} component={AllCategoriesScreen} />
-        <Stack.Screen name={PRODUCTS} component={ProductsScreen} />
-        <Stack.Screen name={PRODUCT_DETAIL} component={ProductDetailScreen} />
+        <Stack.Screen name={Routes.HOME} component={HomeScreen} />
+        <Stack.Screen
+          name={Routes.ALL_CATEGORIES}
+          component={AllCategoriesScreen}
+        />
+        <Stack.Screen name={Routes.PRODUCTS} component={ProductsScreen} />
+        <Stack.Screen
+          name={Routes.PRODUCT_DETAIL}
+          component={ProductDetailScreen}
+        />
       </Stack.Navigator>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "white" },
+  container: { flex: 1, backgroundColor: theme.colors.background },
 });
 
 export default HomeStackNavigator;

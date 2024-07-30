@@ -10,7 +10,7 @@ function FavoritesScreen({ products }) {
   if (favorites.length === 0) {
     return (
       <View style={styles.centeredContainer}>
-        <Text style={styles.textStyle}>No Products</Text>
+        <Text style={styles.textStyle}>No Favorite Products</Text>
       </View>
     );
   }
@@ -25,17 +25,17 @@ function FavoritesScreen({ products }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: theme.colors.background,
     padding: theme.spacing.m,
   },
   centeredContainer: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: theme.colors.background,
     justifyContent: "center",
     alignItems: "center",
   },
   textStyle: {
-    fontSize: 20,
+    fontSize: theme.fontSize.l,
     fontWeight: "bold",
   },
 });

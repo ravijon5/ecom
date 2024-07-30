@@ -1,15 +1,17 @@
-export const HOME = "home";
-export const ALL_CATEGORIES = "all_categories";
-export const PRODUCTS = "products";
-export const HOME_STACK = "home_stack";
-export const CART_STACK = "cart_stack";
-export const PROFILE_STACK = "profile_stack";
-export const NOTIFICATION = "notification";
-export const CART = "cart";
-export const CHECKOUT = "checkout";
-export const ORDERS = "orders";
-export const PROFILE = "profile";
-export const PRODUCT_DETAIL = "product_detail";
-export const FAVORITES = "favorites";
-export const ADDRESS = "address";
-export const ADD_ADDRESS = "add_address";
+export const Routes = {
+  HOME: "home",
+  ALL_CATEGORIES: "all_categories",
+  PRODUCTS: "products",
+  HOME_STACK: "home_stack",
+  CART_STACK: "cart_stack",
+  PROFILE_STACK: "profile_stack",
+  NOTIFICATION: "notification",
+  CART: "cart",
+  CHECKOUT: "checkout",
+  ORDERS: "orders",
+  PROFILE: "profile",
+  PRODUCT_DETAIL: "product_detail",
+  FAVORITES: "favorites",
+  ADDRESS: "address",
+  ADD_ADDRESS: "add_address",
+};

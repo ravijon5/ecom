@@ -8,7 +8,7 @@ function RatingContainer({ rating }) {
       <Text style={styles.ratingText}>{rating.rate}</Text>
       <Ionicons
         name="star"
-        color={theme.colors.primary}
+        color={theme.colors.primaryIcon}
         style={{ marginRight: 10, marginLeft: 2 }}
       />
       <Text style={styles.ratingText}>{rating.count}</Text>
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
   },
   ratingText: {
-    fontSize: 12,
+    fontSize: theme.fontSize.s,
   },
 });
 

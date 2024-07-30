@@ -8,9 +8,8 @@ import {
 } from "react-native";
 import useProductsController from "../controllers/CategoryController";
 import { theme } from "../utils/theme";
-import Product from "../components/Product";
 import { toTitleCase } from "../utils/helper_function";
-import { PRODUCT_DETAIL } from "../utils/route_constants";
+
 import ProductFlatList from "../components/ProductFlatlist";
 
 function ProductsScreen({ route, navigation }) {
@@ -57,14 +56,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: theme.spacing.m,
-    backgroundColor: "white",
+    backgroundColor: theme.colors.background,
     alignItems: "center",
   },
   centeredContainer: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "white",
+    backgroundColor: theme.colors.background,
   },
   headerContainer: {
     flexDirection: "row",
@@ -76,7 +75,7 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize: theme.fontSize.m,
   },
 });
 

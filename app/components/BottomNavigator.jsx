@@ -3,20 +3,14 @@ import { useContext } from "react";
 import { CartContext } from "../store/cart-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
-import {
-  NOTIFICATION,
-  HOME_STACK,
-  CART_STACK,
-  PROFILE_STACK,
-  PROFILE,
-} from "../utils/route_constants";
+
 import NotificationScreen from "../screens/NotificationScreen";
 import { theme } from "../utils/theme";
 import { View, Text } from "react-native";
 import HomeStackNavigator from "./HomeStackNavigator";
 import CartStackNavigator from "./CartStackNavigator";
 import ProfileStackNavigator from "./ProfileStackNavigator";
-import ProfileScreen from "../screens/ProfileScreen";
+import { Routes } from "../utils/route_constants";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -33,7 +27,7 @@ function BottomNavigator() {
         }}
       >
         <BottomTab.Screen
-          name={HOME_STACK}
+          name={Routes.HOME_STACK}
           component={HomeStackNavigator}
           options={{
             tabBarIcon: ({ color, size }) => (
@@ -42,7 +36,7 @@ function BottomNavigator() {
           }}
         />
         <BottomTab.Screen
-          name={NOTIFICATION}
+          name={Routes.NOTIFICATION}
           component={NotificationScreen}
           options={{
             tabBarIcon: ({ color, size }) => (
@@ -55,7 +49,7 @@ function BottomNavigator() {
           }}
         />
         <BottomTab.Screen
-          name={CART_STACK}
+          name={Routes.CART_STACK}
           component={CartStackNavigator}
           options={{
             tabBarIcon: ({ color, size }) => (
@@ -71,8 +65,8 @@ function BottomNavigator() {
                       paddingHorizontal: 5,
                       backgroundColor: theme.colors.primary,
                       borderRadius: 20,
-                      color: "white",
-                      fontSize: 8,
+                      color: theme.colors.background,
+                      fontSize: theme.fontSize.xs,
                     }}
                   >
                     {getQuantity()}
@@ -83,7 +77,7 @@ function BottomNavigator() {
           }}
         />
         <BottomTab.Screen
-          name={PROFILE_STACK}
+          name={Routes.PROFILE_STACK}
           component={ProfileStackNavigator}
           options={{
             tabBarIcon: ({ color, size }) => (

@@ -1,6 +1,4 @@
 import { View, Text, StyleSheet, Image } from "react-native";
-import { NOTIFICATION } from "../utils/route_constants";
-import { IMG_NOTIFICATION } from "../utils/image_constant";
 import { theme } from "../utils/theme";
 
 function NotificationScreen() {
@@ -21,10 +19,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "white",
+    backgroundColor: theme.colors.background,
   },
   textStyle: {
-    fontSize: 20,
+    fontSize: theme.fontSize.l,
     fontWeight: "bold",
     marginTop: theme.spacing.s,
   },

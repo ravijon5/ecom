@@ -2,7 +2,7 @@ import { View, Text, FlatList, StyleSheet } from "react-native";
 import { theme } from "../utils/theme";
 import CategoryRow from "../components/CategoryRow";
 import { getImageUrl, toTitleCase } from "../utils/helper_function";
-import { PRODUCTS } from "../utils/route_constants";
+import { Routes } from "../utils/route_constants";
 
 function AllCategoriesScreen({ route, navigation }) {
   const categories = route.params.categories;
@@ -18,7 +18,7 @@ function AllCategoriesScreen({ route, navigation }) {
             imageUrl={getImageUrl(index)}
             text={toTitleCase(item)}
             onPress={() => {
-              navigation.navigate(PRODUCTS, {
+              navigation.navigate(Routes.PRODUCTS, {
                 category: item,
               });
             }}
@@ -32,7 +32,7 @@ function AllCategoriesScreen({ route, navigation }) {
 const styles = StyleSheet.create({
   container: {
     padding: theme.spacing.m,
-    backgroundColor: "white",
+    backgroundColor: theme.colors.background,
     flex: 1,
   },
 });

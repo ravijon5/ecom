@@ -3,17 +3,19 @@ import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CartScreen from "../screens/CartScreen";
 import CheckoutScreen from "../screens/CheckoutScreen";
-import { CART, CHECKOUT } from "../utils/route_constants";
+import { Routes } from "../utils/route_constants";
+
 import { useLayoutEffect } from "react";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import AppBar from "./AppBar";
+import { theme } from "../utils/theme";
 
 const Stack = createNativeStackNavigator();
 
 function CartStackNavigator({ navigation, route }) {
   useLayoutEffect(() => {
     const routeName = getFocusedRouteNameFromRoute(route);
-    if (routeName === CHECKOUT) {
+    if (routeName === Routes.CHECKOUT) {
       navigation.setOptions({ tabBarStyle: { display: "none" } });
     } else {
       navigation.setOptions({ tabBarStyle: { display: "flex" } });
@@ -25,7 +27,7 @@ function CartStackNavigator({ navigation, route }) {
       <Stack.Navigator
         screenOptions={{
           header: ({ navigation, route, options }) =>
-            route.name === CART ? (
+            route.name === Routes.CART ? (
               <View></View>
             ) : (
               <AppBar
@@ -37,8 +39,8 @@ function CartStackNavigator({ navigation, route }) {
             ),
         }}
       >
-        <Stack.Screen name={CART} component={CartScreen} />
-        <Stack.Screen name={CHECKOUT} component={CheckoutScreen} />
+        <Stack.Screen name={Routes.CART} component={CartScreen} />
+        <Stack.Screen name={Routes.CHECKOUT} component={CheckoutScreen} />
       </Stack.Navigator>
     </SafeAreaView>
   );
@@ -47,7 +49,7 @@ function CartStackNavigator({ navigation, route }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: theme.colors.background,
   },
 });
 

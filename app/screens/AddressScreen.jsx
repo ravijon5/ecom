@@ -1,12 +1,12 @@
 import { View, Text, StyleSheet, FlatList, Pressable } from "react-native";
 import { FAB } from "react-native-paper";
-import { ADD_ADDRESS } from "../utils/route_constants";
+import { Routes } from "../utils/route_constants";
 import { theme } from "../utils/theme";
 import { USERS } from "../utils/users";
 
 function AddressScreen({ navigation }) {
   function onPress() {
-    navigation.navigate(ADD_ADDRESS);
+    navigation.navigate(Routes.ADD_ADDRESS);
   }
 
   return (
@@ -25,7 +25,9 @@ function AddressScreen({ navigation }) {
 
               <Pressable
                 style={styles.editButton}
-                onPress={() => navigation.navigate(ADD_ADDRESS, { item: item })}
+                onPress={() =>
+                  navigation.navigate(Routes.ADD_ADDRESS, { item: item })
+                }
               >
                 <Text style={styles.editText}>Edit</Text>
               </Pressable>
@@ -41,7 +43,7 @@ function AddressScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: theme.colors.background,
     justifyContent: "center",
     alignItems: "center",
     padding: theme.spacing.m,
@@ -60,7 +62,7 @@ const styles = StyleSheet.create({
     marginRight: theme.spacing.s,
   },
   editText: {
-    fontSize: 12,
+    fontSize: theme.fontSize.s,
     color: theme.colors.primary,
   },
   fab: {

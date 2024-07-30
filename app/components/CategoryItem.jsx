@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     textAlign: "center",
-    fontSize: 12,
+    fontSize: theme.fontSize.s,
   },
 });
 

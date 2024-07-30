@@ -1,7 +1,8 @@
 import { View, Text, StyleSheet, FlatList } from "react-native";
 import ListHeader from "./ListHeader";
 import Product from "./Product";
-import { PRODUCT_DETAIL } from "../utils/route_constants";
+import { Routes } from "../utils/route_constants";
+
 import { theme } from "../utils/theme";
 
 function HorizontalProductList({ products, text, onPress, navigation }) {
@@ -16,7 +17,7 @@ function HorizontalProductList({ products, text, onPress, navigation }) {
           <Product
             product={item}
             onPress={() => {
-              navigation.navigate(PRODUCT_DETAIL, {
+              navigation.navigate(Routes.PRODUCT_DETAIL, {
                 product: item,
               });
             }}

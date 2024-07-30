@@ -3,7 +3,7 @@ import ProfileOption from "../components/ProfileOption";
 import { theme } from "../utils/theme";
 import { useContext } from "react";
 import { UserContext } from "../store/user-context";
-import { ADDRESS, FAVORITES } from "../utils/route_constants";
+import { Routes } from "../utils/route_constants";
 import { USERS } from "../utils/users";
 
 function ProfileScreen({ navigation }) {
@@ -12,6 +12,14 @@ function ProfileScreen({ navigation }) {
   const { removeUser } = useContext(UserContext);
 
   const user = USERS[0];
+
+  function navigateToAddress() {
+    navigation.navigate(Routes.ADDRESS);
+  }
+
+  function navigateToFavorites() {
+    navigation.navigate(Routes.FAVORITES);
+  }
 
   return (
     <View style={styles.container}>
@@ -27,18 +35,8 @@ function ProfileScreen({ navigation }) {
         <Text style={styles.detailTextStyle}>{user.email}</Text>
         <Text style={styles.detailTextStyle}>{user.phone}</Text>
       </View>
-      <ProfileOption
-        text="Address"
-        onPress={() => {
-          navigation.navigate(ADDRESS);
-        }}
-      />
-      <ProfileOption
-        text="Wishlist"
-        onPress={() => {
-          navigation.navigate(FAVORITES);
-        }}
-      />
+      <ProfileOption text="Address" onPress={navigateToAddress} />
+      <ProfileOption text="Wishlist" onPress={navigateToFavorites} />
       <ProfileOption text="Payment" />
       <ProfileOption text="Help" />
       <ProfileOption text="Support" />
@@ -52,7 +50,7 @@ function ProfileScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: theme.colors.background,
     padding: theme.spacing.m,
     justifyContent: "center",
   },
@@ -77,7 +75,7 @@ const styles = StyleSheet.create({
   },
   signOutTextStyle: {
     fontWeight: "bold",
-    color: "red",
+    color: theme.colors.failure,
     alignSelf: "center",
   },
 });

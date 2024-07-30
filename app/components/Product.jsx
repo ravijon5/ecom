@@ -33,7 +33,7 @@ function Product({ product, onPress }) {
           name={isFavorite ? "heart" : "heart-outline"}
           size={20}
           style={styles.iconStyle}
-          color={theme.colors.primary}
+          color={theme.colors.primaryIcon}
         />
       </Pressable>
 

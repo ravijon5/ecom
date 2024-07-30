@@ -10,7 +10,7 @@ import { theme } from "../utils/theme";
 import SearchField from "../components/SearchField";
 import HorizontalProductList from "../components/HorizontalProductList";
 import HorizontalCategoryList from "../components/HorizontalCategoryList";
-import { PRODUCTS } from "../utils/route_constants";
+import { Routes } from "../utils/route_constants";
 
 function HomeScreen({ navigation }) {
   const { categories, menProducts, womenProducts, isLoading, error } =
@@ -46,7 +46,7 @@ function HomeScreen({ navigation }) {
         text="Men's Clothing"
         navigation={navigation}
         onPress={() => {
-          navigation.navigate(PRODUCTS, {
+          navigation.navigate(Routes.PRODUCTS, {
             category: "men's clothing",
           });
         }}
@@ -69,13 +69,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: theme.spacing.m,
-    backgroundColor: "white",
+    backgroundColor: theme.colors.background,
   },
   centeredContainer: {
     padding: theme.spacing.m,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "white",
+    backgroundColor: theme.colors.background,
     flex: 1,
   },
 });

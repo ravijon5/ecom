@@ -5,7 +5,7 @@ import SignInScreen from "./SignInScreen";
 
 function Screen() {
   const { user } = useContext(UserContext);
-  return user ? <BottomNavigator /> : <SignInScreen />;
+  return !user ? <BottomNavigator /> : <SignInScreen />;
 }
 
 export default Screen;

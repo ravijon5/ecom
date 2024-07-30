@@ -4,7 +4,7 @@ const palette = {
   green: "#0ECD9D",
   red: "#CD0E61",
   black: "#0B0B0B",
-  white: "#F0F2F3",
+  white: "#FFFFFF",
   grey: "#f4f4f4",
   darkGrey: "#272727",
 };
@@ -20,6 +20,15 @@ export const theme = {
     success: palette.green,
     danger: palette.red,
     failure: palette.red,
+    primaryIcon: palette.purple,
+    whiteIcon: palette.white,
+  },
+  fontSize: {
+    xs: 8,
+    s: 12,
+    m: 16,
+    l: 20,
+    xl: 24,
   },
   spacing: {
     s: 8,
@@ -36,7 +45,7 @@ export const theme = {
       fontSize: 24,
     },
     subHeader: {
-      fontSize: 15,
+      fontSize: 16,
     },
     subHeaderBold: {
       fontSize: 20,

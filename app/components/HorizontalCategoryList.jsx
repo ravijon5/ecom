@@ -1,12 +1,13 @@
 import { View, Text, StyleSheet, FlatList } from "react-native";
 import ListHeader from "../components/ListHeader";
-import { ALL_CATEGORIES, HOME, PRODUCTS } from "../utils/route_constants";
+import { Routes } from "../utils/route_constants";
+
 import CategoryItem from "./CategoryItem";
 import { getImageUrl, toTitleCase } from "../utils/helper_function";
 
 function HorizontalCategoryList({ categories, navigation }) {
   function onPressHandler() {
-    navigation.navigate(ALL_CATEGORIES, {
+    navigation.navigate(Routes.ALL_CATEGORIES, {
       categories: categories,
     });
   }
@@ -24,7 +25,7 @@ function HorizontalCategoryList({ categories, navigation }) {
             imageUrl={getImageUrl(index)}
             text={toTitleCase(item)}
             onPress={() => {
-              navigation.navigate(PRODUCTS, {
+              navigation.navigate(Routes.PRODUCTS, {
                 category: item,
               });
             }}

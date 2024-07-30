@@ -9,6 +9,14 @@ import { CartContext } from "../store/cart-context";
 function CartProduct({ product, quantity }) {
   const { addItemToCart, removeItemFromCart } = useContext(CartContext);
 
+  function addItemHandler() {
+    addItemToCart(product, 1);
+  }
+
+  function removeItemHandler() {
+    removeItemFromCart(product, 1);
+  }
+
   return (
     <View style={styles.container}>
       <Image source={{ uri: product.image }} width={60} />
@@ -16,20 +24,12 @@ function CartProduct({ product, quantity }) {
       <View style={styles.descriptionContainer}>
         <Text>{product.title}</Text>
         <View style={styles.quantityContainer}>
-          <RoundButton
-            onPress={() => {
-              removeItemFromCart(product, 1);
-            }}
-          >
-            <Ionicons name="remove" color="white" />
+          <RoundButton onPress={removeItemHandler}>
+            <Ionicons name="remove" color={theme.colors.whiteIcon} />
           </RoundButton>
           <Text style={styles.quantityStyle}>{quantity}</Text>
-          <RoundButton
-            onPress={() => {
-              addItemToCart(product, 1);
-            }}
-          >
-            <Ionicons name="add" color="white" />
+          <RoundButton onPress={addItemHandler}>
+            <Ionicons name="add" color={theme.colors.whiteIcon} />
           </RoundButton>
         </View>
       </View>

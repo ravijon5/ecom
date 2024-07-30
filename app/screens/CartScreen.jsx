@@ -14,11 +14,16 @@ import { CartContext } from "../store/cart-context";
 import CartProduct from "../components/CartProduct";
 import RoundButton from "../components/RoundButton";
 import RoundedButton from "../components/RoundedButton";
-import { CHECKOUT } from "../utils/route_constants";
+import { Routes } from "../utils/route_constants";
+
 import CostRow from "../components/CostRow";
 import { getPrice } from "../utils/helper_function";
 
 function CartScreen({ navigation, route }) {
+  function navigateToCheckout() {
+    navigation.navigate(Routes.CHECKOUT);
+  }
+
   const { cartProducts, clearCart, getQuantity, getTotal } =
     useContext(CartContext);
   return getQuantity() === 0 ? (
@@ -59,15 +64,15 @@ function CartScreen({ navigation, route }) {
           placeholder="Enter Discount Here"
         />
         <RoundButton>
-          <Ionicons name="chevron-forward" color="white" size={20} />
+          <Ionicons
+            name="chevron-forward"
+            color={theme.colors.whiteIcon}
+            size={20}
+          />
         </RoundButton>
       </View>
 
-      <RoundedButton
-        onPress={() => {
-          navigation.navigate(CHECKOUT);
-        }}
-      >
+      <RoundedButton onPress={navigateToCheckout}>
         <View
           style={{
             flex: 1,
@@ -88,22 +93,22 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "white",
+    backgroundColor: theme.colors.background,
   },
   container: {
     flex: 1,
     padding: theme.spacing.m,
-    backgroundColor: "white",
+    backgroundColor: theme.colors.background,
   },
   headerTextStyle: {
     marginTop: theme.spacing.m,
     alignSelf: "center",
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize: theme.fontSize.m,
   },
   textStyle: {
     fontWeight: "bold",
-    fontSize: 20,
+    fontSize: theme.fontSize.l,
     marginTop: theme.spacing.s,
   },
   textInputContainerStyle: {
@@ -121,7 +126,7 @@ const styles = StyleSheet.create({
   },
   checkoutButtonTextStyle: {
     color: "white",
-    fontSize: theme.textVariants.body.fontSize,
+    fontSize: theme.fontSize.m,
   },
 });
 

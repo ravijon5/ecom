@@ -1,3 +1,4 @@
+import { theme } from "../utils/theme";
 import RoundedButton from "./RoundedButton";
 import { View, Text, StyleSheet } from "react-native";
 
@@ -18,7 +19,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   textStyle: {
-    color: "white",
+    color: theme.colors.background,
   },
 });
 

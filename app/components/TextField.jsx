@@ -35,7 +35,7 @@ function TextField({
             <Ionicons
               name={secureText ? "eye-off" : "eye"}
               size={20}
-              color={theme.colors.primary}
+              color={theme.colors.primaryIcon}
             />
           </Pressable>
         )}
@@ -58,8 +58,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   errorText: {
-    color: "red",
-    fontSize: 12,
+    color: theme.colors.failure,
+    fontSize: theme.fontSize.s,
   },
 });
 
