@@ -15,7 +15,6 @@ function AddressScreen({ navigation }) {
         data={USERS[0].address}
         keyExtractor={(item, index) => index}
         renderItem={({ item, index }) => {
-          console.log(item);
           return (
             <View style={styles.outerAddressContainer}>
               <View style={styles.textContainer}>

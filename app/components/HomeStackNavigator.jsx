@@ -2,7 +2,6 @@ import { View, StyleSheet } from "react-native";
 
 import { useLayoutEffect } from "react";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
-import FavoritesContextProvider from "../store/favorites-context";
 import AppBar from "./AppBar";
 import HomeScreen from "../screens/HomeScreen";
 import AllCategoriesScreen from "../screens/AllCategoriesScreen";
@@ -16,7 +15,6 @@ import {
   PRODUCT_DETAIL,
 } from "../utils/route_constants";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { theme } from "../utils/theme";
 
 const Stack = createNativeStackNavigator();
 
@@ -37,18 +35,23 @@ function HomeStackNavigator({ navigation, route }) {
   return (
     <SafeAreaView style={styles.container}>
       <Stack.Navigator
-        screenOptions={{
-          header: ({ navigation, route, options }) =>
-            route.name === HOME ? (
-              <View></View>
-            ) : (
-              <AppBar
-                route={route}
-                onPress={() => {
-                  navigation.goBack();
-                }}
-              />
-            ),
+        screenOptions={({ navigation, route }) => {
+          if (route.name === HOME) {
+            return {
+              header: () => <View></View>,
+            };
+          } else {
+            return {
+              header: () => (
+                <AppBar
+                  route={route}
+                  onPress={() => {
+                    navigation.goBack();
+                  }}
+                />
+              ),
+            };
+          }
         }}
       >
         <Stack.Screen name={HOME} component={HomeScreen} />

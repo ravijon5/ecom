@@ -49,7 +49,6 @@ function AddAddressScreen({ route }) {
   }
 
   function handleZipCode(value) {
-    console.log("zip code: ", value);
     onChangeText(value, TextFieldType.ZIP_CODE);
   }
 

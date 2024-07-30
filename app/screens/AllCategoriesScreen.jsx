@@ -3,14 +3,9 @@ import { theme } from "../utils/theme";
 import CategoryRow from "../components/CategoryRow";
 import { getImageUrl, toTitleCase } from "../utils/helper_function";
 import { PRODUCTS } from "../utils/route_constants";
-import { useLayoutEffect } from "react";
 
 function AllCategoriesScreen({ route, navigation }) {
   const categories = route.params.categories;
-
-  useLayoutEffect(() => {
-    navigation.setOptions({ tabBarStyle: { display: "none" } });
-  }, [navigation, route]);
 
   return (
     <View style={styles.container}>

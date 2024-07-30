@@ -42,7 +42,6 @@ function ProfileStackNavigator({ navigation, route }) {
               <AppBar
                 route={route}
                 onPress={() => {
-                  console.log("profile stack: ");
                   navigation.goBack();
                 }}
               />

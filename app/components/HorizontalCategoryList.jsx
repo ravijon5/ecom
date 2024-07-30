@@ -5,16 +5,15 @@ import CategoryItem from "./CategoryItem";
 import { getImageUrl, toTitleCase } from "../utils/helper_function";
 
 function HorizontalCategoryList({ categories, navigation }) {
+  function onPressHandler() {
+    navigation.navigate(ALL_CATEGORIES, {
+      categories: categories,
+    });
+  }
+
   return (
     <>
-      <ListHeader
-        text="Categories"
-        onPress={() => {
-          navigation.navigate(ALL_CATEGORIES, {
-            categories: categories,
-          });
-        }}
-      />
+      <ListHeader text="Categories" onPress={onPressHandler} />
       <FlatList
         horizontal
         padding={0}

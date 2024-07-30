@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     paddingLeft: theme.spacing.m,
     backgroundColor: "white",
-    marginBottom: theme.spacing.s,
+    //marginBottom: theme.spacing.s,
     alignItems: "center",
   },
   searchContainer: {

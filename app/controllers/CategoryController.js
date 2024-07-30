@@ -13,7 +13,7 @@ const useProductsController = ({ category }) => {
         const productsData = await getProducts({ category });
         setProducts(productsData);
       } catch (error) {
-        setError(error);
+        setError(error.message);
       } finally {
         setIsLoading(false);
       }

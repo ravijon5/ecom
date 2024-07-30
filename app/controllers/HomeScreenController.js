@@ -24,7 +24,7 @@ const useHomeScreenCategoriesController = () => {
         setMenProducts(productsData1);
         setWomenProducts(productsData2);
       } catch (error) {
-        setError(error);
+        setError(error.message);
       } finally {
         setIsLoading(false);
       }

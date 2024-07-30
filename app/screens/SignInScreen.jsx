@@ -32,7 +32,6 @@ function SignInScreen() {
 
   useEffect(() => {
     if (error) {
-      console.log("error: ", error);
       ToastAndroid.show(error.message, ToastAndroid.SHORT);
     }
   }, [error]);
