@@ -8,7 +8,7 @@ A simple eCommerce mobile app built using React Native. It uses [FakeStoreAPI](h
 
 For demo purposes, use the following credentials:
 
-- **Email:** ravi.horo@gmail.com
+- **Email:** ravi@gmail.com
 - **Password:** 123456
 
 ## Video Demo
